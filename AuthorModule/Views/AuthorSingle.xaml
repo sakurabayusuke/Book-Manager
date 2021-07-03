@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="AuthorModule.Views.AuthorSingle"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:prism="http://prismlibrary.com/"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+			 xmlns:behavior="clr-namespace:CommonModule.Behavior;assembly=CommonModule"
+			 xmlns:views="clr-namespace:CommonModule.UserControls.Views;assembly=CommonModule"
+			 xmlns:val="clr-namespace:CommonModule.Validations;assembly=CommonModule"
+			 xmlns:md="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+			 prism:ViewModelLocator.AutoWireViewModel="True" Width="400">
+	<UserControl.Resources>
+		<ResourceDictionary Source="pack://application:,,,/CommonModule;component/Styles.xaml"/>
+	</UserControl.Resources>
+	<b:Interaction.Behaviors>
+		<behavior:ValidationErrorBehavior x:Name="Behavior"/>
+	</b:Interaction.Behaviors>
+	<DockPanel>
+		<TextBlock Text="{Binding Title.Value}" FontSize="24" DockPanel.Dock="Top" Margin="20 8 20 0"/>
+		<StackPanel Orientation="Vertical" DockPanel.Dock="Top" Margin="20 0 20 0">
+			<TextBox x:Name="TxtName" md:HintAssist.Hint="Name" FontSize="16" Margin="0 0 0 12" md:HintAssist.IsFloating="True">
+				<TextBox.Text>
+					<Binding Path="Author.RpName.Value" NotifyOnValidationError="True" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+						<Binding.ValidationRules>
+							<val:NotEmptyValidation ValidatesOnTargetUpdated="True"/>
+						</Binding.ValidationRules>
+					</Binding>
+				</TextBox.Text>
+			</TextBox>
+			<TextBox md:HintAssist.Hint="PenName" FontSize="16" Text="{Binding Author.RpPenName.Value}" Margin="0 0 0 12"  md:HintAssist.IsFloating="True"/>
+			<DatePicker md:HintAssist.Hint="Birthday" FontSize="16" md:HintAssist.IsFloating="True" Margin="0 0 0 12">
+				<DatePicker.SelectedDate>
+					<Binding Path="Author.RpBirthday.Value" NotifyOnValidationError="True" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+						<Binding.ValidationRules>
+							<val:NotEmptyValidation/>
+							<val:FutureDateValidation/>
+						</Binding.ValidationRules>
+					</Binding>
+				</DatePicker.SelectedDate>
+			</DatePicker>
+			<TextBox md:HintAssist.Hint="Age(Birthday から算出します)" FontSize="16" Text="{Binding Author.RpAge.Value}" md:TextFieldAssist.HasClearButton="False" md:HintAssist.IsFloating="True" IsEnabled="False" Cursor="IBeam"/>
+		</StackPanel>
+
+		<md:ColorZone Mode="Dark" DockPanel.Dock="Bottom" Height="50" VerticalAlignment="Bottom">
+			<Grid Width="Auto">
+				<views:DeleteButton Command="{Binding DeleteButton}" Visibility="{Binding VisibilityDeleteButton.Value}"/>
+				<Button x:Name="BtnSave" Content="Save" FontSize="12" Height="30" Width="100" Padding="0" HorizontalAlignment="Right" Margin="8" Command="{Binding SaveButton}" IsEnabled="{Binding HasViewError, ElementName=Behavior, Converter={StaticResource ReverseBool}}"/>
+			</Grid>
+		</md:ColorZone>
+	</DockPanel>
+</UserControl>

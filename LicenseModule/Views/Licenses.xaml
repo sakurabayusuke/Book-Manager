@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="LicenseModule.Views.Licenses"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+			 xmlns:prism="http://prismlibrary.com/"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 prism:ViewModelLocator.AutoWireViewModel="True" >
+	<UserControl.Resources>
+		<ResourceDictionary  Source="pack://application:,,,/CommonModule;component/Styles.xaml"/>
+	</UserControl.Resources>
+	<ScrollViewer>
+	<DockPanel>
+		<GroupBox DockPanel.Dock="Top"
+			Header="MahApps.Metro"
+			FontSize="16"
+			Style="{DynamicResource MaterialDesignGroupBox}" Margin="16" md:ShadowAssist.ShadowDepth="Depth3" BorderThickness="0">
+			<TextBlock
+				Margin="6,6,6,6"
+				TextWrapping="Wrap"
+				Text="{StaticResource MahAppsMetro}"/>
+		</GroupBox>
+		<GroupBox DockPanel.Dock="Top"
+		          Header="MaterialDesignThemes.MahApps"
+		          FontSize="16"
+		          Style="{DynamicResource MaterialDesignGroupBox}" Margin="16" md:ShadowAssist.ShadowDepth="Depth3" BorderThickness="0">
+			<TextBlock
+				Margin="6,6,6,6"
+				TextWrapping="Wrap"
+				Text="{StaticResource MaterialDesign}"/>
+		</GroupBox>
+		<GroupBox DockPanel.Dock="Top"
+		          Header="Microsoft.EntityFrameworkCore.Sqlite"
+		          FontSize="16"
+		          Style="{DynamicResource MaterialDesignGroupBox}" Margin="16" md:ShadowAssist.ShadowDepth="Depth3" BorderThickness="0">
+			<TextBlock
+				Margin="6,6,6,6"
+				TextWrapping="Wrap"
+				Text="{StaticResource Micorsoft}"/>
+		</GroupBox>
+		<GroupBox DockPanel.Dock="Top"
+		          Header="Microsoft.EntityFrameworkCore.Tools"
+		          FontSize="16"
+		          Style="{DynamicResource MaterialDesignGroupBox}" Margin="16" md:ShadowAssist.ShadowDepth="Depth3" BorderThickness="0">
+			<TextBlock
+				Margin="6,6,6,6"
+				TextWrapping="Wrap"
+				Text="{StaticResource Micorsoft}"/>
+		</GroupBox>
+		<GroupBox DockPanel.Dock="Top"
+		          Header="Prism.Unity"
+		          FontSize="16"
+		          Style="{DynamicResource MaterialDesignGroupBox}" Margin="16" md:ShadowAssist.ShadowDepth="Depth3" BorderThickness="0">
+			<TextBlock
+				Margin="6,6,6,6"
+				TextWrapping="Wrap"
+				Text="{StaticResource PrismUnity}"/>
+		</GroupBox>
+		<GroupBox DockPanel.Dock="Top"
+		          Header="Prism.Wpf"
+		          FontSize="16"
+		          Style="{DynamicResource MaterialDesignGroupBox}" Margin="16" md:ShadowAssist.ShadowDepth="Depth3" BorderThickness="0">
+			<TextBlock
+				Margin="6,6,6,6"
+				TextWrapping="Wrap"
+				Text="{StaticResource PrismWpf}"/>
+		</GroupBox>
+		<GroupBox DockPanel.Dock="Top"
+		          Header="ReactiveProperty"
+		          FontSize="16"
+		          Style="{DynamicResource MaterialDesignGroupBox}" Margin="16" md:ShadowAssist.ShadowDepth="Depth3" BorderThickness="0">
+			<TextBlock
+				Margin="6,6,6,6"
+				TextWrapping="Wrap"
+				Text="{StaticResource ReactiveProperty}"/>
+		</GroupBox>
+	</DockPanel>
+	</ScrollViewer>
+</UserControl>

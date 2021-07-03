@@ -1,0 +1,61 @@
+﻿<mah:MetroWindow x:Class="MainModule.Views.Main"
+				 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+				 xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+				 xmlns:prism="http://prismlibrary.com/"
+				 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+				 xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+				 prism:ViewModelLocator.AutoWireViewModel="True"
+        GlowBrush="{DynamicResource AccentColorBrush}"
+        Title="{Binding Title}" Height="600" Width="1000">
+	<Window.Resources>
+		<ResourceDictionary Source="pack://application:,,,/CommonModule;component/Styles.xaml"/>
+	</Window.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+		<md:ColorZone Mode="PrimaryMid">
+			<DockPanel>
+				<StackPanel DockPanel.Dock="Left" Orientation="Horizontal" Margin="2">
+					<RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" IsChecked="True">
+						<StackPanel Orientation="Horizontal">
+							<md:PackIcon Kind="Home" VerticalAlignment="Center" Margin="0 0 4 0"/>
+							<TextBlock Text="Home" VerticalAlignment="Center"/>
+						</StackPanel>
+					</RadioButton>
+					<RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" IsChecked="False">
+						<StackPanel Orientation="Horizontal">
+							<md:PackIcon Kind="BookOpenVariant" VerticalAlignment="Center" Margin="0 0 4 0"/>
+							<TextBlock Text="Books" VerticalAlignment="Center"/>
+						</StackPanel>
+					</RadioButton>
+					<RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" IsChecked="False" Command="{Binding ShowAuthorListButton}">
+						<StackPanel Orientation="Horizontal">
+							<md:PackIcon Kind="HumanMale" VerticalAlignment="Center" Margin="0 0 4 0"/>
+							<TextBlock Text="Authors" VerticalAlignment="Center"/>
+						</StackPanel>
+					</RadioButton>
+					<RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" IsChecked="False" Command="{Binding ShowPublisherListButton}">
+						<StackPanel Orientation="Horizontal">
+							<md:PackIcon Kind="OfficeBuilding" VerticalAlignment="Center" Margin="0 0 4 0"/>
+							<TextBlock Text="Publishers" VerticalAlignment="Center"/>
+						</StackPanel>
+					</RadioButton>
+					<RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" IsChecked="False" Command="{Binding ShowLicensesButton}">
+						<StackPanel Orientation="Horizontal">
+							<md:PackIcon Kind="License" VerticalAlignment="Center" Margin="0 0 4 0"/>
+							<TextBlock Text="Licenses" VerticalAlignment="Center"/>
+						</StackPanel>
+					</RadioButton>
+				</StackPanel>
+				<Button Padding="12" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignIconForegroundButton}">
+					<md:PackIcon Kind="CogOutline" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+				</Button>
+			</DockPanel>
+		</md:ColorZone>
+		<Grid Grid.Row="1">
+			<ContentControl prism:RegionManager.RegionName="MainRegion"/>
+		</Grid>
+	</Grid>
+</mah:MetroWindow>
