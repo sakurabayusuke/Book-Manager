@@ -2,7 +2,7 @@
 SampleApp for Prism + MaterialDesign +ReactiveProperty + EntityFramewor
 
 # Demo
-https://youtu.be/sAzkEZY1DcM
+https://youtu.be/7zcLKBuPBUg
 
 # 使用前の準備
 1. `%AppData%`に`BookManager`ディレクトリを作成
