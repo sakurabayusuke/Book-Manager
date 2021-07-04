@@ -1,5 +1,5 @@
 # BookManager
-SampleApp for Prism + MaterialDesign +ReactiveProperty + EntityFramework
+【C#, WPF】SampleApp (Prism + MaterialDesign +ReactiveProperty + EntityFramework)
 
 # Demo
 https://youtu.be/7zcLKBuPBUg
